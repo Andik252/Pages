@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1E1E1E">
+    <title>Play</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 91vh;
+            margin: 0;
+            background-color: #2e2e2e; /* Warna background */
+        }
+        video {
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <video id="myVideo" controls controlsList="nodownload noplaybackrate">
+        <source src="mp4/vi.mp4" type="video/mp4">
+        Browser Anda tidak mendukung tag video.
+    </video>
+    <script>
+        const video = document.getElementById('myVideo');
+        
+        // Mengatur agar video diputar ulang
+        video.addEventListener('ended', function() {
+            video.currentTime = 0;
+            video.play();
+        }, false);
+        
+        // Mencegah opsi download muncul saat diklik dan ditahan
+        video.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        }, false);
+    </script>
+</body>
+</html>
